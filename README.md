@@ -47,7 +47,7 @@ La API REST expone los siguientes endpoints, todos probados con Postman:
         "mainAddress": "Av. Amazonas"
    }
       ]
-      
+
       ```
 
 2. **Crear un Cliente (`POST /api/customers`)**:
@@ -218,8 +218,3 @@ La API REST expone los siguientes endpoints, todos probados con Postman:
 - **Validaciones**: Uso de Jakarta Validation para validar los datos de entrada (`@NotBlank`, `@NotNull`).
 - **Manejo de Excepciones**: Implementación de un manejador global de excepciones (`GlobalExceptionHandler`) para errores de validación.
 - **DTOs**: Uso de `CustomerDTO` para controlar qué datos se devuelven en `GET /api/customers`, excluyendo las direcciones adicionales.
-
-### Notas Adicionales
-- No se utilizaron herramientas de versionamiento de base de datos como Liquibase, ya que `spring.jpa.hibernate.ddl-auto` fue suficiente para este caso.
-- La dirección matriz se implementó como campos embebidos en `Customer` (`mainProvince`, `mainCity`, `mainAddress`) para garantizar que sea obligatoria y única por cliente.
-- La relación `@OneToMany` con `Address` se usa exclusivamente para direcciones adicionales.
